@@ -1,0 +1,10 @@
+{
+  "name": "@serlo/lenabi-exchange-format",
+  "version": "0.0.0",
+  "description": "Description of an exchange format for educational content",
+  "main": "index.js",
+  "repository": "https://github.com/serlo/lenabi-exchange-format",
+  "author": "Serlo Education e.V.",
+  "license": "Apache-2.0",
+  "private": true
+}
