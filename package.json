@@ -6,5 +6,6 @@
   "repository": "https://github.com/serlo/lenabi-exchange-format",
   "author": "Serlo Education e.V.",
   "license": "Apache-2.0",
-  "private": true
+  "private": true,
+  "packageManager": "yarn@3.4.1"
 }
