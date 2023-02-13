@@ -7,5 +7,11 @@
   "author": "Serlo Education e.V.",
   "license": "Apache-2.0",
   "private": true,
-  "packageManager": "yarn@3.4.1"
+  "packageManager": "yarn@3.4.1",
+  "scripts": {
+    "format": "prettier -w ."
+  },
+  "devDependencies": {
+    "prettier": "^2.8.4"
+  }
 }
