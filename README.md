@@ -61,8 +61,8 @@ Word = ││ Data │ + │ Media ││
        └────────────────────┘
 ```
 
-Therefore you need an already installed programm on your computer to view and
-edit the document. In comparision H5P ships the code for rendering the
+Therefore you need an already installed program on your computer to view and
+edit the document. In comparison H5P ships the code for rendering the
 educational content as JavaScript and CSS files inside the ZIP file:
 
 ```
@@ -94,22 +94,152 @@ particular educational content. This has some advantages:
 
 The
 [H5P file format specification](https://h5p.org/documentation/developers/h5p-specification)
-consists of 5 key components: the package itself,
-[the file tree structure](https://h5p.org/specification), the
-[package definition file](https://h5p.org/documentation/developers/json-file-definitions),
-the content structure, and the code libraries. The content structure is optional
-and includes media files and a content.json file. The code libraries must
-specify their name, dependencies, and other metadata in the
-[Library Definition file](https://h5p.org/library-definition), and if it's a
+describes a H5P file as a ZIP file with the ending `.h5p`. In case of a Serlo
+content the [file tree structure](https://h5p.org/specification) will be:
+
+```
+.
+├── h5p.json               # Meta / package file describing the content and file structure
+│
+├── content                # Directory with content and media files
+│   │
+│   ├── images                # Directory with media files
+│   │   └── explain.png
+│   │
+│   └── content.json          # JSON file describing the content
+│                               in the Serlo Editor content format
+│
+├── Serlo.Editor           # Main used library with source code and CSS
+│   ├── ...
+│   ├── index.js
+│   ├── style.css
+│   ├── library.json
+│   └── semantics.json
+│
+└── FontAwesome            # Additional libraries which are used (optional)
+    ├── ...
+    └── library.json
+```
+
+Meta data about the educational content (for displaying / using them in the H5P
+repositories) as well as describing how the educational can be technically
+embedded are stored in the `h5p.json` file. It is called the
+[package definition file](https://h5p.org/documentation/developers/json-file-definitions)
+and it will look like:
+
+```json
+{
+  "title": "Example content with the Serlo Editor",
+  "language": "de",
+  "mainLibrary": "Serlo.Editor",
+  "embedTypes": ["div", "iframe"],
+  "authors": [
+    {
+      "name": "Julia Sprothen",
+      "role": "Author"
+    }
+  ],
+  "source": "https://serlo.org/1656",
+  "license": "CC BY-SA",
+  "licenseVersion": "4.0",
+  "changes": [
+    {
+      "date": "02-07-19 11:27:00",
+      "author": "Julia Sprothen",
+      "log": "Erstellung eines Beispielinhalts"
+    }
+  ],
+  "preloadedDependencies": [
+    {
+      "machineName": "Serlo.Editor",
+      "majorVersion": "1",
+      "minorVersion": "0"
+    }
+  ]
+}
+```
+
+The content will be stored in the `content` directory. In case there are
+attached media files they will be stored in `images`. All major image and video
+are allowed (see
+[Allowed File Extensions](https://h5p.org/allowed-file-extensions).
+
+The code libraries must specify their name, dependencies, and other meta data in
+the [Library Definition file](https://h5p.org/library-definition), and if it's a
 runnable content type, it must also include a
 [Semantics Definition file](https://h5p.org/semantics) that describes the
-content's structure.
+content's structure. In case of the Serlo editor the library definition will
+look like
+
+```json
+{
+  "title": "Serlo editor",
+  "description": "A WYSIWYG editor for educational material",
+  "machineName": "Serlo.Editor",
+  "majorVersion": 1,
+  "minorVersion": 0,
+  "patchVersion": 0,
+  "runnable": 1,
+  "author": "Serlo Education e.V.",
+  "license": "Apache License 2.0",
+  "coreApi": {
+    "majorVersion": 1,
+    "minorVersion": 0
+  },
+  "preloadedCss": [{ "path": "styles.css" }],
+  "preloadedJs": [{ "path": "index.js" }],
+  "preloadedDependencies": [
+    {
+      "machineName": "FontAwesome",
+      "majorVersion": 3,
+      "minorVersion": 0
+    }
+  ]
+}
+```
 
 Refer to the official documentation for up-to-date information.
 
 ### The content format of the Serlo editor
 
-TODO: Link to documentation of Anna with describing the main ideas
+The educational material itself will be described in the file
+`content/content.json`. The root is an object which contains meta information as
+well as information about the used version. We have documented this structure in
+depth in our
+[documentation for the migration algorithm](https://github.com/serlo/lenabi-migration-algorithm):
+
+```json
+{
+  "type": "https://serlo.org/editor",
+  "version": 1,
+  "content": {
+    "plugin": "article",
+    "state": {}
+  }
+}
+```
+
+It content itself is described in the article
+[content format of the Serlo editor](https://github.com/serlo/documentation/wiki/Content-format)
+in the wiki of our Serlo Editor. It represents educational material as nested
+blocks of educational content which we call `plugin`:
+
+![Plugin structure of the content format](https://raw.githubusercontent.com/serlo/documentation/main/images/main-content.png)
+
+Those plugins are stored in a JSON format so that they can be read and used in
+many languages. The basic structure of a `plugin` is
+
+```JavaScript
+{
+  "plugin": "...", // name of the plugin
+  "state": ... // necessary information to describe the plugin
+}
+```
+
+The article
+[content format of the Serlo editor](https://github.com/serlo/documentation/wiki/Content-format)
+contains a detailed description of all plugins together with a description of
+their state.
 
 ## Prototypes
 
@@ -119,7 +249,7 @@ This prototype defines a code library for H5P that is build with React and
 Typescript, the same foundation as the rendering of Serlo Content. The prototype
 implements a simple renderer that takes a JSON input and displays is as react
 component. This shows, that the approach in this document is workable and Serlo
-Content can be exported as .h5p-files and opened on a supported platform.
+Content can be exported as `.h5p`-files and opened on a supported platform.
 
 We can go further than only displaying the content. The second prototype located
 at [h5p-editor-serlo-poc](https://github.com/serlo/h5p-editor-serlo-poc) adds
@@ -136,13 +266,14 @@ and update it regularly. There are some ways to handle this:
 
 - Installation is simple and can be done quickly. We hope that this will
   encourage platform administrators to install and update our library.
-
 - There are some major platforms that we have contact with. This way, we can
   ensure that the library is installed and updated.
 
 On a more technical basis, bundling all code into the file has great benefits
 for portability, but it will also increase the file size. However, as a
-transport format, we expect that the upsides will outweigh the downsides.
+transport format, we expect that the upsides will outweigh the downsides. Since
+each H5P file is basically an App / another website you include via iframe in
+your website you should only use those files from trusted sources and authors.
 
 Editing the content on the other platform will need an integration of the Serlo
 Editor, which can be accomplished with another library. The technical foundation
