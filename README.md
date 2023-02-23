@@ -162,7 +162,7 @@ and it will look like:
 The content will be stored in the `content` directory. In case there are
 attached media files they will be stored in `images`. All major image and video
 are allowed (see
-[Allowed File Extensions](https://h5p.org/allowed-file-extensions).
+[Allowed File Extensions](https://h5p.org/allowed-file-extensions)).
 
 The code libraries must specify their name, dependencies, and other meta data in
 the [Library Definition file](https://h5p.org/library-definition), and if it's a
