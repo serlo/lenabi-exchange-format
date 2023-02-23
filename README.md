@@ -61,8 +61,8 @@ Word = ││ Data │ + │ Media ││
        └────────────────────┘
 ```
 
-Therefore you need an already installed programm on your computer to view and
-edit the document. In comparision H5P ships the code for rendering the
+Therefore you need an already installed program on your computer to view and
+edit the document. In comparison H5P ships the code for rendering the
 educational content as JavaScript and CSS files inside the ZIP file:
 
 ```
@@ -94,7 +94,7 @@ particular educational content. This has some advantages:
 
 The
 [H5P file format specification](https://h5p.org/documentation/developers/h5p-specification)
-describes a H5p file as a ZIP file with the ending `.h5p`. In case of a Serlo
+describes a H5P file as a ZIP file with the ending `.h5p`. In case of a Serlo
 content the [file tree structure](https://h5p.org/specification) will be:
 
 ```
@@ -121,11 +121,11 @@ content the [file tree structure](https://h5p.org/specification) will be:
     └── library.json
 ```
 
-Metadata about the educational content (for displaying / using them in the H5p
+Meta data about the educational content (for displaying / using them in the H5P
 repositories) as well as describing how the educational can be technically
-embeded are stored in the `h5p.json` file. It is called the
+embedded are stored in the `h5p.json` file. It is called the
 [package definition file](https://h5p.org/documentation/developers/json-file-definitions)
-and it will lool like:
+and it will look like:
 
 ```json
 {
@@ -164,7 +164,7 @@ attached media files they will be stored in `images`. All major image and video
 are allowed (see
 [Allowed File Extensions](https://h5p.org/allowed-file-extensions).
 
-The code libraries must specify their name, dependencies, and other metadata in
+The code libraries must specify their name, dependencies, and other meta data in
 the [Library Definition file](https://h5p.org/library-definition), and if it's a
 runnable content type, it must also include a
 [Semantics Definition file](https://h5p.org/semantics) that describes the
@@ -272,7 +272,7 @@ and update it regularly. There are some ways to handle this:
 On a more technical basis, bundling all code into the file has great benefits
 for portability, but it will also increase the file size. However, as a
 transport format, we expect that the upsides will outweigh the downsides. Since
-each H5p file is basically an App / another website you include via iframe in
+each H5P file is basically an App / another website you include via iframe in
 your website you should only use those files from trusted sources and authors.
 
 Editing the content on the other platform will need an integration of the Serlo
