@@ -202,7 +202,44 @@ Refer to the official documentation for up-to-date information.
 
 ### The content format of the Serlo editor
 
-TODO: Link to documentation of Anna with describing the main ideas
+The educational material itself will be described in the file
+`content/content.json`. The root is an object which contains meta information as
+well as information about the used version. We have documented this structure in
+depth in our
+[documentation for the migration algorithm](https://github.com/serlo/lenabi-migration-algorithm):
+
+```json
+{
+  "type": "https://serlo.org/editor",
+  "version": 1,
+  "content": {
+    "plugin": "article",
+    "state": {}
+  }
+}
+```
+
+It content itself is described in the article
+[content format of the Serlo editor](https://github.com/serlo/documentation/wiki/Content-format)
+in the wiki of our Serlo Editor. It represents educational material as nested
+blocks of educational content which we call `plugin`:
+
+![Plugin structure of the content format](https://raw.githubusercontent.com/serlo/documentation/main/images/main-content.png)
+
+Those plugins are stored in a JSON format so that they can be read and used in
+many languages. The basic structure of a `plugin` is
+
+```JavaScript
+{
+  "plugin": "...", // name of the plugin
+  "state": ... // necessary information to describe the plugin
+}
+```
+
+The article
+[content format of the Serlo editor](https://github.com/serlo/documentation/wiki/Content-format)
+contains a detailed description of all plugins together with a description of
+their state.
 
 ## Prototypes
 
