@@ -249,7 +249,7 @@ This prototype defines a code library for H5P that is build with React and
 Typescript, the same foundation as the rendering of Serlo Content. The prototype
 implements a simple renderer that takes a JSON input and displays is as react
 component. This shows, that the approach in this document is workable and Serlo
-Content can be exported as .h5p-files and opened on a supported platform.
+Content can be exported as `.h5p`-files and opened on a supported platform.
 
 We can go further than only displaying the content. The second prototype located
 at [h5p-editor-serlo-poc](https://github.com/serlo/h5p-editor-serlo-poc) adds
@@ -266,13 +266,14 @@ and update it regularly. There are some ways to handle this:
 
 - Installation is simple and can be done quickly. We hope that this will
   encourage platform administrators to install and update our library.
-
 - There are some major platforms that we have contact with. This way, we can
   ensure that the library is installed and updated.
 
 On a more technical basis, bundling all code into the file has great benefits
 for portability, but it will also increase the file size. However, as a
-transport format, we expect that the upsides will outweigh the downsides.
+transport format, we expect that the upsides will outweigh the downsides. Since
+each H5p file is basically an App / another website you include via iframe in
+your website you should only use those files from trusted sources and authors.
 
 Editing the content on the other platform will need an integration of the Serlo
 Editor, which can be accomplished with another library. The technical foundation
