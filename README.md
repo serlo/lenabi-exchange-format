@@ -94,16 +94,109 @@ particular educational content. This has some advantages:
 
 The
 [H5P file format specification](https://h5p.org/documentation/developers/h5p-specification)
-consists of 5 key components: the package itself,
-[the file tree structure](https://h5p.org/specification), the
-[package definition file](https://h5p.org/documentation/developers/json-file-definitions),
-the content structure, and the code libraries. The content structure is optional
-and includes media files and a content.json file. The code libraries must
-specify their name, dependencies, and other metadata in the
-[Library Definition file](https://h5p.org/library-definition), and if it's a
+describes a H5p file as a ZIP file with the ending `.h5p`. In case of a Serlo
+content the [file tree structure](https://h5p.org/specification) will be:
+
+```
+.
+├── h5p.json               # Meta / package file describing the content and file structure
+│
+├── content                # Directory with content and media files
+│   │
+│   ├── images                # Directory with media files
+│   │   └── explain.png
+│   │
+│   └── content.json          # JSON file describing the content
+│                               in the Serlo Editor content format
+│
+├── Serlo.Editor           # Main used library with source code and CSS
+│   ├── ...
+│   ├── index.js
+│   ├── style.css
+│   ├── library.json
+│   └── semantics.json
+│
+└── FontAwesome            # Additional libraries which are used (optional)
+    ├── ...
+    └── library.json
+```
+
+Metadata about the educational content (for displaying / using them in the H5p
+repositories) as well as describing how the educational can be technically
+embeded are stored in the `h5p.json` file. It is called the
+[package definition file](https://h5p.org/documentation/developers/json-file-definitions)
+and it will lool like:
+
+```json
+{
+  "title": "Example content with the Serlo Editor",
+  "language": "de",
+  "mainLibrary": "Serlo.Editor",
+  "embedTypes": ["div", "iframe"],
+  "authors": [
+    {
+      "name": "Julia Sprothen",
+      "role": "Author"
+    }
+  ],
+  "source": "https://serlo.org/1656",
+  "license": "CC BY-SA",
+  "licenseVersion": "4.0",
+  "changes": [
+    {
+      "date": "02-07-19 11:27:00",
+      "author": "Julia Sprothen",
+      "log": "Erstellung eines Beispielinhalts"
+    }
+  ],
+  "preloadedDependencies": [
+    {
+      "machineName": "Serlo.Editor",
+      "majorVersion": "1",
+      "minorVersion": "0"
+    }
+  ]
+}
+```
+
+The content will be stored in the `content` directory. In case there are
+attached media files they will be stored in `images`. All major image and video
+are allowed (see
+[Allowed File Extensions](https://h5p.org/allowed-file-extensions).
+
+The code libraries must specify their name, dependencies, and other metadata in
+the [Library Definition file](https://h5p.org/library-definition), and if it's a
 runnable content type, it must also include a
 [Semantics Definition file](https://h5p.org/semantics) that describes the
-content's structure.
+content's structure. In case of the Serlo editor the library definition will
+look like
+
+```json
+{
+  "title": "Serlo editor",
+  "description": "A WYSIWYG editor for educational material",
+  "machineName": "Serlo.Editor",
+  "majorVersion": 1,
+  "minorVersion": 0,
+  "patchVersion": 0,
+  "runnable": 1,
+  "author": "Serlo Education e.V.",
+  "license": "Apache License 2.0",
+  "coreApi": {
+    "majorVersion": 1,
+    "minorVersion": 0
+  },
+  "preloadedCss": [{ "path": "styles.css" }],
+  "preloadedJs": [{ "path": "index.js" }],
+  "preloadedDependencies": [
+    {
+      "machineName": "FontAwesome",
+      "majorVersion": 3,
+      "minorVersion": 0
+    }
+  ]
+}
+```
 
 Refer to the official documentation for up-to-date information.
 
