@@ -22,7 +22,7 @@ already an existing and widely used format as a foundation which we aim to
 support as well.
 
 H5p provides a platform for sharing interactive HTML5 content. With an H5p
-instance, you can create and display H5P files. Those H5P files packages all
+instance, you can create and display H5P files. H5P packages all
 necessary data into a single file, which can then be uploaded to another
 platform. The main components of an H5P file are shown in the following image:
 
