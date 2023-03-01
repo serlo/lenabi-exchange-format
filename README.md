@@ -279,7 +279,7 @@ clearly define the scope of this possibility.
 
 ## License
 
-<img src="https://github.com/serlo/lenabi-exchange-format/raw/main/assets/cc-by-sa.svg" alt="Logo CC-BY-SA 4.0 license" title="CC-BY-SA 4.0" align="right" height="50" />
+<img src="https://github.com/serlo/lenabi-exchange-format/raw/main/assets/cc-by-sa.svg" alt="Logo CC-BY-SA 4.0 license" title="CC-BY-SA 4.0" align="right" width="150" />
 
 This specification is licensed under the
 [CC-BY-SA 4.0 license](https://creativecommons.org/licenses/by-sa/4.0/). Please
@@ -288,7 +288,7 @@ this repository as the source.
 
 ## Förderung
 
-<img src="https://github.com/serlo/lenabi-exchange-format/raw/main/assets/bmbf.png" alt="Logo BMBF" title="BMBF" align="right" height="150" />
+<img src="https://github.com/serlo/lenabi-exchange-format/raw/main/assets/bmbf.png" alt="Logo BMBF" title="BMBF" align="right" width="150" />
 
 Das diesem Bericht zugrunde liegende Vorhaben wurde mit Mitteln des
 Bundesministeriums für Bildung und Forschung unter dem Förderkennzeichen LENABI2
