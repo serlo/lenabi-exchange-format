@@ -276,3 +276,12 @@ Editing the content on the other platform will need an integration of the Serlo
 Editor, which can be accomplished with another library. The technical foundation
 is available, as shown in the prototype. But there is still work needed to
 clearly define the scope of this possibility.
+
+## Förderung
+
+<img src="https://github.com/serlo/lenabi-exchange-format/raw/main/assets/bmbf.png" alt="Logo BMBF" title="BMBF" align="right" height="150" />
+
+Das diesem Bericht zugrunde liegende Vorhaben wurde mit Mitteln des
+Bundesministeriums für Bildung und Forschung unter dem Förderkennzeichen LENABI2
+gefördert. Die Verantwortung für den Inhalt dieser Veröffentlichung liegt bei
+der Autorin/beim Autor.
