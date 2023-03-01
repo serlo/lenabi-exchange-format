@@ -279,6 +279,8 @@ clearly define the scope of this possibility.
 
 ## License
 
+<img src="https://github.com/serlo/lenabi-exchange-format/raw/main/assets/cc-by-sa.svg" alt="Logo CC-BY-SA 4.0 license" title="CC-BY-SA 4.0" align="right" height="50" />
+
 This specification is licensed under the
 [CC-BY-SA 4.0 license](https://creativecommons.org/licenses/by-sa/4.0/). Please
 attribute [Serlo Education e.V.](https://serlo.org) together with the link to
