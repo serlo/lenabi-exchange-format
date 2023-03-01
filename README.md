@@ -283,8 +283,8 @@ clearly define the scope of this possibility.
 
 This specification is licensed under the
 [CC-BY-SA 4.0 license](https://creativecommons.org/licenses/by-sa/4.0/). Please
-attribute [Serlo Education e.V.](https://serlo.org) together with the link to
-this repository as the source.
+provide [Serlo Education e.V.](https://serlo.org) together with the link to this
+repository as the source attribution.
 
 ## Förderung
 
