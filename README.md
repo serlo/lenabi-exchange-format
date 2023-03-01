@@ -277,6 +277,13 @@ Editor, which can be accomplished with another library. The technical foundation
 is available, as shown in the prototype. But there is still work needed to
 clearly define the scope of this possibility.
 
+## License
+
+This specification is licensed under the
+[CC-BY-SA 4.0 license](https://creativecommons.org/licenses/by-sa/4.0/). Please
+attribute [Serlo Education e.V.](https://serlo.org) together with the link to
+this repository as the source.
+
 ## Förderung
 
 <img src="https://github.com/serlo/lenabi-exchange-format/raw/main/assets/bmbf.png" alt="Logo BMBF" title="BMBF" align="right" height="150" />
