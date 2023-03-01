@@ -1,8 +1,5 @@
 # Exchange Format for Serlo Content
 
-_M2.1 Entwurf für die allgemeine Grundstruktur des Aufgaben- und
-Austauschformats steht und ist in einem Open Source Repository veröffentlicht._
-
 ## Introduction
 
 We want to achieve that learning content can be shared and exchanged between
