@@ -19,9 +19,9 @@ already an existing and widely used format as a foundation which we aim to
 support as well.
 
 H5p provides a platform for sharing interactive HTML5 content. With an H5p
-instance, you can create and display H5P files. H5P packages all
-necessary data into a single file, which can then be uploaded to another
-platform. The main components of an H5P file are shown in the following image:
+instance, you can create and display H5P files. H5P packages all necessary data
+into a single file, which can then be uploaded to another platform. The main
+components of an H5P file are shown in the following image:
 
 ![grafik](https://user-images.githubusercontent.com/13507950/217875199-b2b1584e-8d0b-4ee5-9dbd-8893cf168b0d.png)
 
@@ -286,11 +286,11 @@ This specification is licensed under the
 provide [Serlo Education e.V.](https://serlo.org) together with the link to this
 repository as the source attribution.
 
-## Förderung
+## Funding
 
 <img src="https://github.com/serlo/lenabi-exchange-format/raw/main/assets/bmbf.png" alt="Logo BMBF" title="BMBF" align="right" width="150" />
 
-Das diesem Bericht zugrunde liegende Vorhaben wurde mit Mitteln des
-Bundesministeriums für Bildung und Forschung unter dem Förderkennzeichen LENABI2
-gefördert. Die Verantwortung für den Inhalt dieser Veröffentlichung liegt bei
-der Autorin/beim Autor.
+The project covered by this report has been financed by public means granted by
+the German Ministry for Education and Research under the funding code LENABI2.
+The responsibility for the content of this publication lies solely with the
+author.
